@@ -1,0 +1,15 @@
+<suite name="Suite"   parallel= "test" thread-count ="2" >
+  <test name="chrome">
+  <parameter name="browser" value="chrome"/>
+    <classes>
+      <class name="Hazirlik.deneme2"/>
+    </classes>
+  </test> 
+
+  <test name="firefox">
+  <parameter name="browser" value="firefox"/>
+    <classes>
+      <class name="Hazirlik.deneme2"/>
+    </classes>
+  </test> 
+</suite> 

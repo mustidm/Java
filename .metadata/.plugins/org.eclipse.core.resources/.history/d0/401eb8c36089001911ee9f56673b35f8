@@ -1,0 +1,34 @@
+package com.class4;
+
+import static org.testng.Assert.assertEquals;
+
+import org.openqa.selenium.By;
+import org.testng.Assert;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Parameters;
+import org.testng.annotations.Test;
+
+import utills.CommonMethods;
+public class odev extends CommonMethods {
+	@Parameters({ "browserr", "urll" })
+	@BeforeClass
+	public void login(String browser, String url) {
+		setUpDriver(browser, url);
+	}
+   @Parameters({"giris","sifre"})
+	@Test
+	public void fillup(String giris, String sifre) {
+		driver.findElement(By.cssSelector("#ctl00_MainContent_username")).sendKeys(giris);
+		sendText(driver.findElement(By.cssSelector("#ctl00_MainContent_password")), sifre);
+		driver.findElement(By.cssSelector("#ctl00_MainContent_login_button")).click();
+		Assert.assertEquals(driver.findElement(By.cssSelector("div.login_info")).isDisplayed(), true);
+		
+	}
+
+	@AfterClass
+	public void quit() {
+driver.quit();
+	}
+
+}

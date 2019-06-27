@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="5662" started-at="2019-06-06T00:24:57Z" finished-at="2019-06-06T00:25:03Z">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="5662" started-at="2019-06-06T00:24:57Z" finished-at="2019-06-06T00:25:03Z">
+      <class name="class13.NewtoursExample">
+        <test-method status="PASS" signature="setIP()[pri:0, instance:class13.NewtoursExample@cc285f4]" name="setIP" is-config="true" duration-ms="5518" started-at="2019-06-06T00:24:57Z" finished-at="2019-06-06T00:25:03Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setIP -->
+        <test-method status="PASS" signature="userINformantion()[pri:0, instance:class13.NewtoursExample@cc285f4]" name="userINformantion" duration-ms="115" started-at="2019-06-06T00:25:03Z" finished-at="2019-06-06T00:25:03Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- userINformantion -->
+        <test-method status="PASS" signature="teardown()[pri:0, instance:class13.NewtoursExample@cc285f4]" name="teardown" is-config="true" duration-ms="0" started-at="2019-06-06T00:25:03Z" finished-at="2019-06-06T00:25:03Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- teardown -->
+      </class> <!-- class13.NewtoursExample -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>

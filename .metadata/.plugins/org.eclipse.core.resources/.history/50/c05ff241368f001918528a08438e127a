@@ -1,0 +1,31 @@
+package com.syntax.pages;
+
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
+import com.syntax.utils.BaseClass;
+
+public class locationFile extends BaseClass {
+
+	
+	@FindBy(xpath="//*[@id=\"name\"]")
+     public WebElement namee;
+	
+	@FindBy(xpath="//*[@id=\"countryCode_inputfileddiv\"]/div/input")
+    public WebElement ulketikla;
+	
+	@FindBy(xpath="//*[@id=\"select-options-9839f2f6-42a8-0609-2e93-75b5f5ca97de\"]/li")
+    public WebElement ulkeler;
+	
+	@FindBy(xpath="//*[@id=\"city\"]")
+    public WebElement city;
+	
+	@FindBy(xpath="//*[@id=\"zipCode\"]")
+    public WebElement zipcode;
+	
+	public locationFile() {
+		PageFactory.initElements(driver, this);
+	}
+	
+}

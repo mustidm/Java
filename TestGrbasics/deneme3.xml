@@ -1,0 +1,12 @@
+
+<suite name="Suite">
+  <test  name="Test">
+  <parameter name="username1" value="Ece"/>
+   <parameter name="username2" value="Melek"/>
+   <parameter name="username3" value="Esin"/>
+
+    <classes>
+      <class name="com.class4.deneme3"/>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->

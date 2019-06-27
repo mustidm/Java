@@ -1,0 +1,40 @@
+package com.syntax.pages;
+
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
+import com.syntax.utils.BaseClass;
+
+public class HomePage extends BaseClass{
+	
+	@FindBy(xpath="//li[text()='Dashboard']")
+	public WebElement dashboardText;
+	
+	@FindBy(partialLinkText="PIM")
+    public WebElement PIM;
+	
+    @FindBy(partialLinkText="Add Employee")
+    public WebElement addEmployee;
+    
+	@FindBy(xpath="//li[contains(@id,'menu_admin_view')]")
+	public WebElement adminMenu;
+	
+	@FindBy(xpath="//*[@id=\"menu_admin_Organization\"]")
+	public WebElement organization;
+	
+	@FindBy(xpath="//span[text()='Locations']")
+	public WebElement Location;
+	
+	
+	@FindBy(xpath="//*[@id=\"locationDiv\"]/div")
+	public WebElement add;
+	
+	
+	
+	
+	
+	public HomePage() {
+		PageFactory.initElements(driver, this);
+	}
+}

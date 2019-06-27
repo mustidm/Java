@@ -1,0 +1,13 @@
+<suite name="Suite">
+  <test name="Test">
+  <parameter name="browser" value="chrome"/>
+  <parameter name="Url"  value="http://secure.smartbearsoftware.com/samples/testcomplete11/WebOrders/login.aspx"/>
+   <parameter name="UserN" value="Tester"/>
+      <parameter name="pass" value="test"/>
+      
+      
+  <classes>
+  <class name="Hazirlik.deneme3"/> 
+  </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->

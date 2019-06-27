@@ -1,0 +1,71 @@
+package com.syntax.testcases;
+
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
+
+import com.syntax.pages.HomePage;
+import com.syntax.pages.LoginPage;
+import com.syntax.pages.locationFile;
+import com.syntax.utils.BaseClass;
+import com.syntax.utils.CommonMethods;
+import com.syntax.utils.ConfigsReader;
+
+public class LocationTest extends BaseClass{
+
+	@Test(dataProvider="musti")
+	public void locationn(String Name,String Country,String City,String zip) throws InterruptedException {
+	LoginPage login=new LoginPage();
+	HomePage home=new HomePage();
+locationFile locF=new locationFile();	
+	
+	login.login(ConfigsReader.getProperty("username"), ConfigsReader.getProperty("password"));
+	CommonMethods.click(home.adminMenu);
+	CommonMethods.click(home.organization);
+	CommonMethods.click(home.Location);
+    CommonMethods.waitForElementBeClickable(home.add, 10);
+	CommonMethods.click(home.add);
+	 CommonMethods.waitForElementBeClickable(locF.namee, 5);
+CommonMethods.sendText(locF.namee, Name);
+CommonMethods.click(locF.ulketikla);
+CommonMethods.selectList(locF.ulkeler, Country);
+CommonMethods.sendText(locF.city, City);
+CommonMethods.sendText(locF.zipcode, zip);
+
+
+}
+
+@DataProvider(name="Musti")
+public Object[][] getData() {
+	
+	Object[][] data=new Object[5][4];
+	data[0][0]="John";
+	data[0][1]="Engalnd";
+	data[0][2]="London";
+	data[0][3]="12354";
+
+	data[1][0]="Melek";
+	data[1][1]="Turkey";
+	data[1][2]="Ankara";
+	data[1][3]="060606";
+
+	
+	data[2][0]="Dimitry";
+	data[2][1]="Russia";
+	data[2][2]="Moscow";
+	data[2][3]="124578";
+
+	
+	data[3][0]="Elon";
+	data[3][1]="Italy";
+	data[3][2]="Roma";
+	data[3][3]="78212";
+
+	
+	data[4][0]="Mustafa";
+	data[4][1]="Turkey";
+	data[4][2]="Izmir";
+	data[4][3]="353535";
+
+	return data;
+}
+}

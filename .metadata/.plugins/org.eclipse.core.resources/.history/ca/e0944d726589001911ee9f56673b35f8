@@ -1,0 +1,98 @@
+package com.class4;
+
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Parameters;
+import org.testng.annotations.Test;
+
+import utills.CommonMethods;
+public class odev extends CommonMethods {
+	@Parameters({ "browserr", "urll" })
+	@BeforeClass
+	public void login(String browser, String url) {
+		setUpDriver(browser, url);
+	}
+   @Parameters({"giris","sifre"})
+	@Test
+	public void Task1(String giris, String sifre) {
+		driver.findElement(By.cssSelector("#ctl00_MainContent_username")).sendKeys(giris);
+		sendText(driver.findElement(By.cssSelector("#ctl00_MainContent_password")), sifre);
+		driver.findElement(By.cssSelector("#ctl00_MainContent_login_button")).click();
+		Assert.assertEquals(driver.findElement(By.cssSelector("div.login_info")).isDisplayed(), true);	
+	}
+   @Test
+   public void Task2() throws InterruptedException {
+	     driver.findElement(By.xpath("//a[text()='Order']")).click();
+	        
+	        Select Products=new Select(driver.findElement(By.xpath("//*[@id=\"ctl00_MainContent_fmwOrder_ddlProduct\"]")));
+	        Products.selectByVisibleText("FamilyAlbum");
+	        
+	        WebElement melek=driver.findElement(By.xpath("//*[@id=\"ctl00_MainContent_fmwOrder_txtQuantity\"]"));
+	        melek.clear();
+	        melek.sendKeys("5");;
+	        driver.findElement(By.xpath("//*[@id=\"ctl00_MainContent_fmwOrder_txtUnitPrice\"]")).clear();
+	        driver.findElement(By.xpath("//*[@id=\"ctl00_MainContent_fmwOrder_txtUnitPrice\"]")).sendKeys("70");
+	        driver.findElement(By.xpath("//*[@id=\"ctl00_MainContent_fmwOrder_txtDiscount\"]")).clear();
+	        driver.findElement(By.xpath("//*[@id=\"ctl00_MainContent_fmwOrder_txtDiscount\"]")).sendKeys("50");
+	        
+	        driver.findElement(By.xpath("//*[@id=\"ctl00_MainContent_fmwOrder_txtName\"]")).sendKeys("Melek");
+	        sendText(driver.findElement(By.xpath("//*[@id=\"ctl00_MainContent_fmwOrder_TextBox2\"]")), "17 Ballinger Way");
+	        sendText(driver.findElement(By.xpath("//*[@id=\"ctl00_MainContent_fmwOrder_TextBox3\"]")), "MountLaurel");
+	        sendText(driver.findElement(By.xpath("//*[@id=\"ctl00_MainContent_fmwOrder_TextBox4\"]")), "NewJersey");
+	        sendText(driver.findElement(By.xpath("//*[@id=\"ctl00_MainContent_fmwOrder_TextBox5\"]")), "08054");
+	        
+	        List<WebElement> banka=driver.findElements(By.xpath("//ol/li/table/tbody/tr/td"));
+	        for(WebElement bankalar: banka) {
+	            if(bankalar.getText().contains("MasterCard")) {
+	                bankalar.click();     
+	            }}
+	            sendText(driver.findElement(By.xpath("//*[@id=\"ctl00_MainContent_fmwOrder_TextBox6\"]")), "267656763654");
+	            sendText(driver.findElement(By.xpath("//*[@id=\"ctl00_MainContent_fmwOrder_TextBox1\"]")), "05/19");
+	  
+	            driver.findElement(By.xpath("//*[@id=\"ctl00_MainContent_fmwOrder_InsertButton\"]")).click();
+	            driver.findElement(By.xpath("//a[text()='View all orders']")).click();
+	          
+	            
+	          List <WebElement> listeler =driver.findElements(By.xpath("//div/table/tbody/tr/td"));
+	          for(WebElement liste: listeler) {
+	        	  if(liste.getAttribute("td").contains("Melek")) {
+	        		  System.out.println("yes");
+	        	  }else {
+	        		  System.out.println("no");
+	        	  }
+	          }
+	          
+	            
+	            
+	            
+	            
+	            
+//	            driver.findElement(By.xpath("//*[@id=\"ctl00_MainContent_orderGrid\"]/tbody/tr[2]/td[13]/input")).click();
+//	            Thread.sleep(3000);
+//	          WebElement isim=driver.findElement(By.xpath("//*[@id=\"ctl00_MainContent_fmwOrder_TextBox2\"]"));
+//	          isim.clear();
+//	          Thread.sleep(3000);
+//	          isim.sendKeys("18 Melek");	   
+//	          Thread.sleep(3000);
+//	          driver.findElement(By.xpath("//*[@id=\"ctl00_MainContent_fmwOrder_UpdateButton\"]")).click();
+//	          
+//	            
+	        
+	        
+	        
+	        
+	        
+   }
+
+	@AfterClass
+	public void quit() {
+driver.quit();
+	}
+
+}

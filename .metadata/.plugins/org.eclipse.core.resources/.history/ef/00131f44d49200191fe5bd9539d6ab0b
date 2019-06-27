@@ -1,0 +1,16 @@
+package com.hiyar.runners;
+
+
+
+
+@RunWith(Cucumber.class)
+@CucumberOption(
+		features="src\\test\\resources\\features\\GoogleSearch.feature"
+		)
+
+
+
+
+public class TestRunner {
+
+}
